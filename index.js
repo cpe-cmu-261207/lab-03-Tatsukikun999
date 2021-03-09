@@ -6,6 +6,7 @@
  */
 export const sum = (a, b) => {
   // TODO: implement here
+  return a+b;
 
 }
 
@@ -20,7 +21,11 @@ export const sum = (a, b) => {
  */
 export const map = (arr, callback) => {
   // TODO: implement here
-
+  let $arr = []
+  for (let i=0;i<arr.length;i++){
+    $arr.push(callback(arr[i],arr))
+  }
+  return $arr
 }
 
 /**
@@ -33,7 +38,13 @@ export const map = (arr, callback) => {
  */
 export const filter = (arr, callback) => {
   // TODO: implement here
-
+  let $arr =[]
+  for(let i =0;i<arr.length;i++){
+    if(callback(arr[i],i)){
+      $arr.push(arr[i])
+    }
+  }
+  return $arr
 }
 
 /**
@@ -53,5 +64,9 @@ export const filter = (arr, callback) => {
  */
 export const reduce = (arr, callback, initialValue) => {
   // TODO: implement here
-
+  let sum = initialValue
+  for(let i=0;i<arr.length;i++){
+    sum = callback(sum,arr[i],i)
+  }
+  return sum
 }
